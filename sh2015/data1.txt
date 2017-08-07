@@ -1,0 +1,14 @@
+a,b,jay,8
+a,c,tom,6
+a,d,jay,7
+b,b,tom,6
+c,b,jack,8
+b,c,jack,9
+c,d,tom,10
+c,a,jay,6
+c,b,jay,10
+c,d,jack,5
+d,a,jay,8
+d,d,lucy,8
+d,c,lucy,9
+d,b,lily,10

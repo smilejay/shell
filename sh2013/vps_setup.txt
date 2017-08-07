@@ -1,0 +1,35 @@
+# some tips about seting up my VPS
+
+1. install software:
+	https://github.com/smilejay/shell/blob/master/sh2013/yum_install.sh
+
+2. config services:
+	# chkconfig httpd on   # when using apache
+	chkconfig mysqld on
+	chkconfig postfix on
+	chkconfig nginx on
+	chkconfig php-fpm on
+	# service mysqld/nginx/php-fpm start
+
+3. vim /etc/php.ini
+engine = On
+extension=mysql.so
+
+4. add rewrite and allow/deny rules in .htaccess file for apache
+	/var/www/html/.htaccess
+	https://github.com/smilejay/other-code/blob/master/config/dot_htaccess
+
+5. add my monitor script for hourly running
+	crontab -e:
+	02  *  *  *  * /root/vps_monitor.sh
+	monitor script:
+	https://github.com/smilejay/shell/blob/master/sh2013/vps_monitor.sh
+
+6. some modification for httpd.conf if using apache
+	https://github.com/smilejay/other-code/blob/master/config/httpd.conf.diff
+6. some modification for nginx & php-fpm
+	https://github.com/smilejay/other-code/blob/master/config/nginx.conf.diff
+	https://github.com/smilejay/other-code/blob/master/config/php-fpm-www.conf.diff
+
+7. a command to get top 20 visitors' IP address:
+cat access_log | awk '{print $1}' | sort | uniq -c | sort -rn | head -20

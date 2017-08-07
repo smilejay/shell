@@ -1,0 +1,66 @@
+||<tablewidth="1160px" tableheight="874px"rowbgcolor="#e0e0e0" rowstyle="FONT-WEIGHT:bold">Feature ||CPUs/Platform ||Notes ||Xen ||KVM ||RHEL6.2 ||SLES11 SP2 ||OVM3.0 ||RHEL6.1 ||RHEL6 ||OVM 2.2 ||SLES11 SP1 ||RHEL 5.4 ||SLES 11 ||RHEL 5.3 ||Sun xVM 1.0 ||OVM 1.2 ||RHEL5.2 ||SLES10 SP2 ||
+||Release Date || || || || ||Q4 '11|| ||Q3 '11 ||Q2 '11 ||Q3 '10 ||Q3 '09 ||Q2 '10 ||Q3 '09 ||Q1 '09 ||Q1 '09 || || || || ||
+||'''Xen Version''' || || || ||n/a ||N/A||4.1.2 ||4.0 ||No Xen ||No Xen ||3.4 ||4.0 ||3.4.1 ||3.3.1 ||3.1.4 ||3.1.4 ||3.1.2 (RHEL5.1) ||3.1.2(partly) ||3.2 ||
+||'''KVM Version''' || || ||n/a || ||2.6.32||3.0.4 ||n/a ||2.6.32 ||2.6.32 ||n/a ||2.6.32 backport ||2.6.30 backport ||n/a ||n/a ||n/a ||n/a ||n/a ||n/a ||
+||'''Kernel''' || || ||2.6.31.12 (pv ops dom0) ||2.6.31+ ||2.6.32-220||3.0.4 ||2.6.32 ||2.6.32-131 ||2.6.32 ||2.6.18.8 ||2.6.32 ||2.6.18.8 ||2.6.27 ||2.6.18.8 ||sun ||2.6.18 ||2.6.18.8 ||2.6.16 ||
+||'''VT-x ''' ||VMX-x1 || ||yes ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||
+||'''Flex Priority ''' ||VMX-x1 ||vTPR ||yes ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||no ||yes ||yes ||
+||'''NMIp''' ||VMX-x1 ||NMI Exiting ||yes ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||no ||no ||yes ||
+||'''Adv. String IO ''' ||VMX-x1 || ||no ||no ||yes||no || ||yes ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''VPID ''' ||NHM || ||yes ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||no ||yes ||no ||no ||yes ||
+||'''x2APIC''' (>64 threads) ||NHM ||host supporting, Proper x2APIC handling ||yes(4.1.0) ||yes ||yes||yes || ||yes ||yes ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''x2APIC Virtualization''' ||NHM ||Allow guests to use x2APIC (via MSR) ||yes(4.1.0) ||yes (even if interrupt remapping is not available) ||yes||yes || ||yes ||yes ||no ||yes ||no ||no ||no ||no ||no ||no ||no ||
+||'''RDTSCP''' ||NHM || ||yes (4.0) ||no ||no ||yes || || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''Host NUMA''' ||NHM || ||Yes (basic NUMA support only, i.e. allocate memory from same node) ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||no || || || ||no || || ||
+||'''Guest NUMA''' ||NHM || ||Progress ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''MCE (SRAO) (RAS) ''' ||NHM || ||yes ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||no ||no ||no ||no ||no ||no ||no ||
+||'''MCE (SRAR) (RAS) ''' ||JKT || ||no ||no ||no||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''MCE (RAS) for guest''' ||NHM ||Inject Errors into Guest ||yes(4.1) ||yes ||yes||yes || ||yes ||yes ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''CPU on-line''' (RAS) ||NHM || ||3.4 ||yes ||yes||yes || ||yes ||yes ||no ||yes ||no || || || ||no || || ||
+||'''CPU hot-add''' (RAS) ||NHM-EX || ||WIP for socket hot-add (post-3.4) ||yes ||yes||yes || ||yes ||yes ||no ||yes ||no ||no ||no ||no ||no ||no ||no ||
+||'''Memory on-line''' (RAS) ||NHM || ||yes(4.0) ||yes ||yes||yes || ||yes ||yes ||no ||yes ||no ||no ||no ||no ||no ||no ||no ||
+||'''Memory hot-add''' (RAS) ||NHM-EX || ||yes(4.0) ||yes ||yes||yes || ||yes ||yes ||no ||yes ||no ||no ||no ||no ||no ||no ||no ||
+||'''Socket online/offline (RAS)''' ||NHM-EX || ||yes(4.0) ||no ||no||yes|| ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''Socket Migration (RAS)''' ||NHM-EX ||We didn't enable it. ||no ||no ||no||no || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''Pause Loop Exiting''' ||NHM-EX || ||yes (Xen 4.0) ||yes ||yes ||yes || ||no ||no ||no ||yes ||no ||no ||no ||no ||no ||no ||no ||
+||'''EPT realmode''' ||WSM || ||yes ||yes ||yes||yes ||yes ||yes ||yes ||no ||yes ||no ||no ||no ||no ||no ||no ||no ||
+||'''XSAV/XRSTR''' || || ||yes ||yes ||yes||yes || ||yes ||yes ||no ||yes ||no ||yes ||no ||no ||no ||no ||no ||
+||'''Always running APIC timer''' ||WSM ||APIC timer that does not stop at deeper C-state ||yes (already in Xen 3.4) ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||no || ||no ||no ||no ||no ||no ||
+||'''5-6 AES new instructions''' (encryption) ||WSM ||(Xen is not using the AES instructions), Its OpenSSL that will leverage the new instructions ||NA ||NA ||NA||NA || ||NA ||NA ||NA ||NA ||NA ||NA ||NA ||NA ||NA ||NA ||NA ||
+||'''PCLMULQDQ NI''' ||WSM ||(Xen is not using the new instructions) ||NA ||NA ||NA||NA || ||NA ||NA ||NA ||NA ||NA ||NA ||NA ||NA ||NA ||NA ||NA ||
+||'''PCID for PV''' ||WSM || ||No ||No ||No||No || ||No ||No ||No ||No ||No ||No ||No ||No ||No ||No ||No ||
+||'''PFA(RAS)''' ||WSM ||We didn't enable it. ||No ||No ||No||No || ||No ||No ||No ||No ||No ||No ||No ||No ||No ||No ||No ||
+||'''1Gb Page for hypervisor''' ||WSM || ||yes (3.4) ||yes ||yes ||yes || ||yes ||yes ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''export 1Gb Page to Guest OS''' ||WSM || ||yes (post 4.0) ||yes ||yes ||yes || || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''AVX for guest''' ||SNB ||XSAVE/XRSTOR, and CPUID handling for guests ||Y(4.1.0) ||yes ||yes||yes || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''TSC Deadline Timer''' ||SNB ||Hypervisor only. Not clear if Win8 will have support for it. ||yes(4.1.0) ||yes ||no ||yes || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''Per-CPU-Vector (interrupts = 256*CPUs)''' || ||Support more interrupts ||yes ||yes ||yes|| ||yes ||yes ||yes ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''APIC full virtualization''' ||IVT ||ucode patch for SNB is available (as of June/2010) ||no ||no ||no ||no || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''EPT A/D bit''' ||HSW || ||no ||no ||no ||no || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''Shadow VMCS''' ||HSW || ||no ||no ||no ||no || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''VT-d ''' || ||DMA Remapping ||yes ||yes ||yes||yes ||yes ||yes ||yes ||no ||yes ||yes ||yes ||no ||no ||no ||no ||yes ||
+||'''VT-d''' || ||Interrupt Remapping, Queued Invalidation, ATS, ACS ||yes ||yes ||yes||yes ||yes ||yes ||yes ||partly: no ATS, ACS, RHSA (IO-NUMA) ||yes ||yes ||partly: no ATS, ACS, RHSA (IO-NUMA) ||no ||no ||no ||no ||no ||
+||'''Guest MSI''' || || ||yes ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||no ||no ||no ||no ||no ||
+||'''Posted interrupt''' || || ||no ||no ||no ||no || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''VT-d 1G super page''' || || ||yes(4.1.0) ||no ||no ||yes ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''VT-d GFX passthrough''' || ||not tested ||yes (4.0) ||no ||no||N/A || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''VMM Coexistence''' || || ||N/A ||yes (2.6.35) || ||no || || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''Nested Virtualization''' || || ||yes(4.2.0) ||yes ||no||no || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''PM S3''' || || ||yes ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||no ||yes ||no ||no ||no ||no ||yes ||
+||'''PM Px/Cx ''' || || ||yes ||yes || ||yes ||yes || ||yes ||yes ||yes ||no ||yes ||no ||no ||no ||no ||no ||
+||'''PM Tx''' || || ||yes ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||no ||no ||no ||no ||no ||no ||no ||
+||'''Guest S3''' || || ||yes ||no ?? ||yes||no ||yes ||yes ||yes ||yes ||yes ||no ||yes ||no ||no ||no ||no ||no ||
+||'''VMDq zero-copy network''' || ||Thought we did some patches, but they haven't been accepted yet. ||no ||no ||no ||no || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''SR-IOV ''' || || ||yes ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||yes ||no ||no ||no ||no ||no ||no ||
+||'''TXT ''' || || ||yes ||yes ||yes||yes || || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''Linux PV ''' || ||PV driver for VBD and VNIF ||yes ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||
+||'''Windows PV''' || ||PV driver for VBD and VNIF ||yes (James Harper) ||yes ||yes||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||yes ||
+||'''EPT 1G Super Page''' ||WSM || ||yes(4.1.0) ||yes ||yes||yes || ||yes ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''SMEP''' ||IVB || ||yes(4.2.0) ||yes ||no||yes || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''CPUID faulting''' ||IVB ||not tested ||yes(4.2.0) ||N/A ||N/A || || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''F16 data conversion instruction''' ||IVB || ||yes(4.1.0) ||yes ||yes||yes || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''RDRAND''' ||IVB || ||yes(4.2.0) ||yes ||yes||yes || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''ERMS(Enhanced Rep Mov/Str)''' ||IVB || ||yes(4.2.0) ||yes ||yes ||yes || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''User FS/GS Base Rd/Wr''' ||IVB || ||yes(4.2.0) ||yes ||yes||yes || ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||no ||
+||'''ERST/APEI''' ||WSM-EX ||not tested ||yes(4.0.0) ||yes ||yes||yes ||no ||yes ||no ||no ||yes ||no ||no ||no ||no ||no ||no ||no ||
+||Feature ||CPUs/Platform ||Notes ||Xen ||KVM ||RHEL6.2 ||SLES11 SP2 ||OVM3.0 ||RHEL6.1 ||RHEL6 ||OVM 2.2 ||SLES11 SP1 ||RHEL 5.4 ||SLES 11 ||RHEL 5.3 ||Sun xVM 1.0 ||OVM 1.2 ||RHEL5.2 ||SLES10 SP2 ||

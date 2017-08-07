@@ -1,0 +1,14 @@
+# put this .repo file into /etc/yum.repo.d/ directory.
+
+[rhel$releasever]
+name=Red Hat Enterprise Linux $releasever
+baseurl=http://mydomain.com/yum/$releasever/$basearch
+enabled=1
+gpgcheck=0
+
+[rhel6_optional]
+name=Red Hat Enterprise Linux rhel6_optional
+baseurl=http://mydomain.com/yum/$releasever\_optional/$basearch
+enabled=1
+gpgcheck=0
+
