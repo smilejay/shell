@@ -6,7 +6,7 @@
 # author: Jay
 # date: 2013-10-16
 
-EMAIL="yongjie.ren@dianping.com"
+EMAIL="smile665@gmail.com"
 WARN_MSG=""
 
 # alert when free memory is less than 50 MB

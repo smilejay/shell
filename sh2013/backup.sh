@@ -1,9 +1,9 @@
 #!/bin/bash
 # to sync data from a remote sytem and backup all the data
 
-EMAIL=yongjie.ren@intel.com
-LOG=/share/vmm-qa/bin/backup.log
-LOCAL_DIR=/share/vmm-qa
+EMAIL=smile665@gmail.com
+LOG=/share/mydir/bin/backup.log
+LOCAL_DIR=/share/mydir
 
 #only reserve $DAYS_TO_RESERVE days backup tar.gz files.
 export DAYS_TO_RESERVE=10
@@ -39,15 +39,15 @@ do
 	is_removable $f
 	if [ $? -eq 1 ]; then
 		echo "Remove file $f"
-		rm -f $f	
+		rm -f $f
 	fi
 done
 
 #sync data from server and create tarball
-echo "rysnc with vmm-qa: $(date)"
-rsync qa-machine-jay:/home/ $LOCAL_DIR/home/ -avz --delete  
+echo "rysnc with xxx server: $(date)"
+rsync qa-machine-jay:/home/ $LOCAL_DIR/home/ -avz --delete
 if [ $? -ne 0 ]; then
-	echo "failed" | mailx -s "failed to rsync with vmm-qa." -a $LOG $EMAIL
+	echo "failed" | mailx -s "failed to rsync with xxx server." -a $LOG $EMAIL
 	exit 1
 fi
 

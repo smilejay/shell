@@ -1,6 +1,4 @@
 #!/bin/bash
-#author:Yejianjun
-#	Yongjie Ren <yongjie.ren@intel.com>
 #discrption: print info about the relationship between PCI BDF and NIC interface
 #set -x
 

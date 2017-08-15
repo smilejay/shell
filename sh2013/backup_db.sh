@@ -1,10 +1,10 @@
 #!/bin/bash
-#author: yongjie.ren@intel.com
+#author: smile665@gmail.com
 #filename: backup_db.sh
 # to back up some databases for a QA system
 
 backup=/home/backup_db
-databases="vmm_data bugs bugs_kvm bugs_xen bugs_vgt testlink testlink_txt testlink_yocto kvm-perf kvm_functional mysql information_schema vgt_data"
+databases=" testlink mysql information_schema"
 reserve_days=30
 log_file=backup_db.log
 log_msg=""
