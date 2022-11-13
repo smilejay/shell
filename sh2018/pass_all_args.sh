@@ -24,7 +24,7 @@ done
 
 # test $*
 echo '-------------testing $* ------------'
-for var in $*
+for var in "$*"
 do
     echo "$var"
 done
